@@ -227,6 +227,6 @@ app.get("/api/qualifying/:ref", (req, resp) => {
 
 
 
-app.listen(8080, () => {
+app.listen(process.env.PORT||8080 , () => {
   console.log("listening on port 8080");
 });
