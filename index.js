@@ -87,6 +87,38 @@ app.get("/api/artists", async (req, resp) => {
 
 
 });
+app.get("/api/artists/:ref", (req, resp) => {
+    let sql = `
+        SELECT *
+        FROM Artists
+        WHERE ArtistID = ?;
+    `;
+
+    let artistId = Number(req.params.ref);
+
+    if (!Number.isSafeInteger(artistId) || artistId <= 0) {
+        resp.status(400).send({
+            error: "Invalid artist ID"
+        });
+        return;
+    }
+
+    db.get(sql, [artistId], (err, row) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!row) {
+            resp.status(404).send({
+                error: "Artist not found"
+            });
+            return;
+        }
+
+        resp.json(row);
+    });
+});
 
 app.get("/api/galleries/country/:subs", async (req, resp) => {
     let sql = "SELECT * FROM Galleries WHERE GalleryCountry LIKE ?";
