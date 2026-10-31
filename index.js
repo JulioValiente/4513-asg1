@@ -238,6 +238,43 @@ app.get("/api/genres/:ref", (req, resp) => {
         resp.json(row);
     });
 });
+app.get("/api/genres/painting/:ref", (req, resp) => {
+    let sql = `
+        SELECT Genres.*, Eras.*
+        FROM Genres
+        JOIN PaintingGenres
+            ON Genres.GenreID = PaintingGenres.GenreID
+        LEFT JOIN Eras
+            ON Genres.EraID = Eras.EraID
+        WHERE PaintingGenres.PaintingID = ?
+        ORDER BY Genres.GenreName ASC;
+    `;
+
+    let paintingId = Number(req.params.ref);
+
+    if (!Number.isSafeInteger(paintingId) || paintingId <= 0) {
+        resp.status(400).send({
+            error: "Invalid painting ID"
+        });
+        return;
+    }
+
+    db.all(sql, [paintingId], (err, rows) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!rows || rows.length === 0) {
+            resp.status(404).send({
+                error: "No genres found for painting " + paintingId
+            });
+            return;
+        }
+
+        resp.json(rows);
+    });
+});
 
 app.get("/api/paintings/sort/:sType/limit/:ref", async (req, resp) => {
     let sql =
