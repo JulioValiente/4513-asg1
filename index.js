@@ -339,13 +339,14 @@ app.get("/api/paintings/sort/:sType/limit/:ref", (req, resp) => {
     }
 
     // Validate limit
-    if (!/^\d+$/.test(req.params.ref) ||
-        !Number.isSafeInteger(limit)) {
-        resp.status(400).send({
-            error: "Limit must be a non-negative integer."
-        });
-        return;
-    }
+  
+
+if (!Number.isSafeInteger(limit) || limit < 0) {
+    resp.status(400).send({
+        error: "Limit must be a non-negative integer."
+    });
+    return;
+}
 
     // If limit is 0, return all paintings
     if (limit === 0) {
