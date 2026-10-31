@@ -1,0 +1,36 @@
+galleryId,galleryName,galleryNativeName,galleryCity,galleryAddress,galleryCountry,latitude,longitude,galleryWebSite,flickrPlaceID,yahooWoeID,googlePlaceID
+2,Prado Museum,Museo del Prado,Madrid,"Paseo del Prado, s/n, 28014",Spain,40.413393,-3.691953,http://www.museodelprado.es/,XrSazRhTUrh4j1shyQ,20219885,ChIJ7aLYZp0oQg0RWoitk33wlBA
+3,State Museum,Staatliche Museen,Berlin,Genthiner Str. 38 D,Germany,52.50861,13.36472,http://www.smb.museum/,VULyzjBXVb89VXc,675695,ChIJ6c-eGLRRqEcR_S0RGNMMbWw
+4,Uffizi Museum,Galleria degli Uffizi,Florence,"Piazzale degli Uffizi, 6, 50122",Italy,43.76863888,11.25521,http://www.polomuseale.firenze.it/en/musei/?m=uffizi,GKD_20BTUrvaoc1jyA,20150278,ChIJgZDFjQBUKhMRzcTwm8i33s0
+5,National Gallery,National Gallery,London,Trafalgar Square,UK,51.5086,-0.1283,http://www.nationalgallery.org.uk/,1EPGyGtTUrrDXJmGCA,20094364,ChIJeclqF84EdkgRtKAjTmWFr0I
+6,Metropolitan Museum of Art,Metropolitan Museum of Art,New York City,1000 5th Ave,USA,40.7794472,-73.963111,http://www.metmuseum.org,zzA0hmBTUb9GY797pA,23511893,ChIJb8Jg9pZYwokR-qHGtvSkLzs
+7,National Gallery of Art,National Gallery of Art,"Washington, DC",6th & Constitution Ave NW,USA,38.89147,-77.02001,http://www.nga.gov/content/ngaweb.html,i0jd9gJTWr3c.68Wbg,28751392,ChIJSYxSO5u3t4kRm4eyKw_Y7Kg
+11,The Art Institute of Chicago,The Art Institute of Chicago,Chicago,111 S Michigan Ave,USA,41.8794444,-87.62388,http://www.artic.edu/,S7hSKqFTVr6exT4J,2441891,ChIJlUbZ4qMsDogR3tCinMzzKUg
+13,Philadelphia Museum of Art,Philadelphia Museum of Art,Philadelphia,2600 Benjamin Franklin Pkwy,USA,39.966,-75.181,http://www.philamuseum.org/,xDQDYKNTVrp.RmQV,2401619,ChIJ_5CoRebFxokR08ApAyF2KIs
+16,Louvre Museum,Musée du Louvre,Paris,"Rue de Rivoli, 75001",France,48.8611,2.33638,http://www.louvre.fr/,36CFHdZUV7KNOKK4LQ,55843752,ChIJ8XJ_6CVu5kcRWP1XT9TkBt4
+17,Tate Britain,Tate Britain,London,"Millbank, Westminster",UK,51.490833,-0.127222,http://www.tate.org.uk/visit/tate-britain,BjVxeKdVU7z_Fw,41676,ChIJvWjCxekEdkgRoCgQVJHZH_U
+18,Art History Museum (Vienna),Kunsthistorisches Museum,Vienna,"Maria-Theresien-Platz, 1010",Austria,48.2037,16.3614,http://www.khm.at/,GmGVGDJUV7vR.KE,551756,ChIJ8XfPY5oHbUcRQbimbLVSYG8
+19,Musee d`Orsay,Musée d`Orsay,Paris,1 Rue de la Légion d`Honneur,France,48.86,2.327,http://www.musee-orsay.fr/,.jdUillUV7Kt1uHqAg,55843777,ChIJG5Qwtitu5kcR2CNEsYy9cdA
+20,Museum of Modern Art,Museum of Modern Art,New York,11 W 53rd St,USA,40.761484,-73.977664,http://www.moma.org/,byMt1GpTWrhtqOpahg,28288823,ChIJKxDbe_lYwokRVf__s8CPn-o
+22,Belvedere Gallery,Österreichische Galerie Belvedere,Vienna,"Schloss Belvedere, Prinz Eugen-Stra+ƒe 27, 1030",Austria,48.19138,16.38,http://www.belvedere.at/,wVuFk_FUV7sGJng,551795,ChIJpZ4LAn0HbUcRMNCmNwlXeN8
+24,Hermitage Museum,Hermitage Museum,St. Petersburg,"Palace Square, 2",Russia,59.941,30.3129,http://www.hermitagemuseum.org/,BfjabGxYUrw0knsYVA,90600519,ChIJ6eLLMgsxlkYR_F1QoCoDTgc
+27,J. Paul Getty Museum,J. Paul Getty Museum,Los Angeles,1200 Getty Center Dr,USA,34.0775,-118.475,http://www.getty.edu/museum/,6A92XzRTWr3WXDwJwQ,28751324,ChIJpbxvgcW8woARza8I4QhFyyY
+28,National Gallery of Norway,Nationalgalleriet,Oslo,"Universitetsgata 13, 0164",Norway,59.9162,10.7375,http://www.nasjonalmuseet.no/,lQQM7sZZVL.Hngs,865764,ChIJOdGZU3xuQUYRRpZUX1Z3YUM
+29,Van Gogh Museum,Van Gogh Museum,Amsterdam,"Museumplein 6, 1071 DJ",Netherlands,52.358417,4.881083,http://www.vangoghmuseum.nl/,xfcEFYhWULKtjYI,728410,ChIJX1rTlu8JxkcRGsV8-a4oKMI
+30,Rijksmuseum,Rijksmuseum,Amsterdam,"Museumstraat 1, 1071 XX",Netherlands,52.36,4.885278,http://www.rijksmuseum.nl/,xfcEFYhWULKtjYI,728410,ChIJ5Ra7we4JxkcRhYVAaq5zQ9U
+32,Royal Picture Gallery Mauritshuis,Royal Picture Gallery Mauritshuis,The Hague,"Plein 29, 2511 CS Den Haag",Netherlands,52.080556,4.314444,http://www.mauritshuis.nl/,gycEsvZWUbkGyFQ,733553,ChIJEa9zVSO3xUcRXKUtUE5Qgbk
+34,Musee du Petit Palais,Petit Palais,Paris,"Avenue Winston Churchill, 75008",France,48.866084,2.314759,http://www.parismusees.paris.fr/,a5KHUTVUVL6wFRTYsQ,56448116,ChIJSUOPztFv5kcRnEbSPYG-9fM
+35,Solomon R. Guggenheim Museum,Solomon R. Guggenheim Museum,New York,1071 5th Ave,USA,40.782975,-73.958992,http://www.guggenheim.org/new-york,1AJK9adTWr3qYGsuLA,28751193,ChIJmZ5emqJYwokRuDz79o0coAQ
+36,The Courtauld Institute of Art,The Courtauld Institute of Art,London,Strand,UK,51.510833,-0.117222,http://www.courtauld.ac.uk/,AZPsrPxTUbyolQ,23636,ChIJvZhvcMoEdkgRB5qnzGs_VNw
+37,Barnes Foundation,Barnes Foundation,Philadelphia,2025 Benjamin Franklin Pkwy,USA,39.960659,-75.172523,http://www.barnesfoundation.org/,y3CJNJRTW7m785fi2A,29389142,ChIJrcsBU8vHxokR4FXP2BplJks
+38,Sistine Chapel,Sistine Chapel,Rome,"00120, Vatican City",Italy,41.903056,12.454444,http://mv.vatican.va/,xfftaFtTUb6gXRUjTg,23424986,ChIJ268jxWVgLxMRIj61f4fIFqs
+41,Picture Gallery (Berlin),Gemäldegalerie,Berlin,"Matthäikirchplatz, 10785",Germany,52.508472,13.365417,http://www.smb.museum/,VULyzjBXVb89VXc,675695,ChIJveOIOrRRqEcRIsZHHE5dQxA
+42,Brooklyn Museum,Brooklyn Museum,New York,200 Eastern Pkwy,USA,40.671306,-73.96375,http://www.brooklynmuseum.org/,9R6NtodTWr2le.Hw.A,28751453,ChIJyTmcRApbwokR-oXJRqpVI8Y
+43,Old Masters Gallery,Gemäldegalerie Alte Meister,Dresden,"Theaterplatz 1, 01067",Germany,51.053611,13.734722,http://www.skd.museum/,fr.j5iRTVLL4Bs4Wag,26822156,ChIJE6ZpuWjPCUcR0dN6tE-_u6o
+49,Museum of Fine Arts,Museum of Fine Arts,Boston,465 Huntington Ave,USA,42.339167,-71.094167,http://www.mfa.org/,c1_W2UJUVL.DGU.MbQ,56574533,ChIJS3rn5w1644kRZNWVxNY_Ay8
+50,National Gallery of Scotland,National Gallery of Scotland,Edinburgh,The Mound,Scotland,55.950917,-3.195667,http://www.nationalgalleries.org/,AtPXsOpTUrrN5fImVw,20094252,ChIJ68bm6kjGh0gRkyF0XlT5Rww
+51,Albright-Knox Art Gallery,Albright-Knox Art Gallery,Buffalo,1285 Elmwood Ave,USA,42.932078,-78.877072,http://www.albrightknox.org/,dLCnqMtUV7L6BRUi6g,55806539,ChIJe6SdptAS04kRzppu7BanDfk
+52,Detroit Institute of Arts,Detroit Institute of Arts,Detroit,5200 Woodward Ave,USA,42.359292,-83.064797,http://www.dia.org/,aLB8_gVUVLt45Q4MaQ,56192713,ChIJO6USub3SJIgRshN1AKZBH20
+70,Indianapolis Museum of Art,Indianapolis Museum of Art,Indianapolis,4000 Michigan Rd,USA,39.8259,-86.1855,http://www.imamuseum.org/,42QAS0hTV7j9Fq9a,2523727,ChIJJYnup7pWa4gRheOf5vIg2JE
+81,Brera Art Gallery,Pinacoteca di Brera,Milan,"Via Brera, 28, 20121",Italy,45.471944,9.188056,http://www.brera.beniculturali.it/,49Gidk1WU7JxrFY,718345,ChIJH05-WBHuhkcRNjexLI56Nhs
+82,Leopold Museum,Leopold Museum,Vienna,"Museumsplatz 1, A 1070",Austria,48.202635,16.359088,https://www.leopoldmuseum.org,vyIUe41UV7uao.Y,551801,ChIJAzFFGJAHbUcROmKaJWvcKyE
