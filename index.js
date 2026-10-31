@@ -119,6 +119,31 @@ app.get("/api/artists/:ref", (req, resp) => {
         resp.json(row);
     });
 });
+app.get("/api/artist/search/:ref", (req, resp) => {
+    let sql = `
+        SELECT *
+        FROM Artists
+        WHERE LastName LIKE ?;
+    `;
+
+    let search = req.params.ref + "%";
+
+    db.all(sql, [search], (err, rows) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!rows || rows.length === 0) {
+            resp.status(404).send({
+                error: "No artists found matching " + req.params.ref
+            });
+            return;
+        }
+
+        resp.json(rows);
+    });
+});
 
 app.get("/api/galleries/country/:subs", async (req, resp) => {
     let sql = "SELECT * FROM Galleries WHERE GalleryCountry LIKE ?";
@@ -296,14 +321,14 @@ LEFT JOIN Galleries
 WHERE Paintings.YearOfWork BETWEEN ? AND ?
 ORDER BY Paintings.YearOfWork ASC;
     `;
-    if (req.params.start > req.params.end) {
+    if (Number(req.params.start) > Number(req.params.end)) {
         resp
             .status(400)
             .send({ error: "Start year must be less than or equal to end year" });
         return;
     }
 
-    if (req.params.start < 0 || req.params.end < 0) {
+    if (Number(req.params.start) < 0 || Number(req.params.end) < 0) {
         resp.status(400).send({ error: "Years must be positive numbers" });
         return;
     }
