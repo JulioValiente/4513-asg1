@@ -71,7 +71,7 @@ app.get("/api/galleries/:id", async (req, resp) => {
 
 });
 
-app.get("/api/galleries/:subs", async (req, resp) => {
+app.get("/api/galleries/country/:subs", async (req, resp) => {
     let sql = "SELECT * FROM Galleries WHERE GalleryCountry LIKE ?";
 
     await db.all(sql, [req.params.subs + "%"], (err, rows) => {
