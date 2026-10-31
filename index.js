@@ -339,14 +339,14 @@ app.get("/api/paintings/sort/:sType/limit/:ref", (req, resp) => {
     }
 
     // Validate limit
-  
 
-if (!Number.isSafeInteger(limit) || limit < 0) {
-    resp.status(400).send({
-        error: "Limit must be a non-negative integer."
-    });
-    return;
-}
+
+    if (!Number.isSafeInteger(limit) || limit < 0) {
+        resp.status(400).send({
+            error: "Limit must be a non-negative integer."
+        });
+        return;
+    }
 
     // If limit is 0, return all paintings
     if (limit === 0) {
@@ -558,6 +558,41 @@ app.get("/api/paintings/artist/:ref", (req, resp) => {
         resp.json(rows);
     });
 
+});
+app.get("/api/paintings/genre/:ref", (req, resp) => {
+    let sql = `
+        SELECT Paintings.PaintingID, Paintings.Title, Paintings.YearOfWork
+        FROM Paintings
+        JOIN PaintingGenres
+            ON Paintings.PaintingID = PaintingGenres.PaintingID
+        WHERE PaintingGenres.GenreID = ?
+        ORDER BY Paintings.YearOfWork ASC;
+    `;
+
+    let genreId = Number(req.params.ref);
+
+    if (!Number.isSafeInteger(genreId) || genreId <= 0) {
+        resp.status(400).send({
+            error: "Invalid genre ID"
+        });
+        return;
+    }
+
+    db.all(sql, [genreId], (err, rows) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!rows || rows.length === 0) {
+            resp.status(404).send({
+                error: "No paintings found for genre " + genreId
+            });
+            return;
+        }
+
+        resp.json(rows);
+    });
 });
 
 app.get("/api/paintings/era/:ref", (req, resp) => {
