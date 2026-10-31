@@ -313,27 +313,62 @@ app.get("/api/genres/painting/:ref", (req, resp) => {
     });
 });
 
-app.get("/api/paintings/sort/:sType/limit/:ref", async (req, resp) => {
-    let sql =
-        "SELECT Paintings.*, Artists.*, Galleries.* FROM Paintings LEFT JOIN Artists ON Paintings.ArtistID = Artists.ArtistID LEFT JOIN Galleries ON Paintings.GalleryID = Galleries.GalleryID ORDER BY CASE WHEN ? = 'title' THEN Paintings.Title END ASC, CASE WHEN ? = 'year' THEN Paintings.YearOfWork END ASC LIMIT ?";
+app.get("/api/paintings/sort/:sType/limit/:ref", (req, resp) => {
+    let sql = `
+        SELECT Paintings.*, Artists.*, Galleries.*
+        FROM Paintings
+        LEFT JOIN Artists
+            ON Paintings.ArtistID = Artists.ArtistID
+        LEFT JOIN Galleries
+            ON Paintings.GalleryID = Galleries.GalleryID
+        ORDER BY
+            CASE WHEN ? = 'title' THEN Paintings.Title END ASC,
+            CASE WHEN ? = 'year' THEN Paintings.YearOfWork END ASC
+        LIMIT ?;
+    `;
 
-    await db.all(
-        sql,
-        [req.params.sType, req.params.sType, req.params.ref],
-        (err, rows) => {
-            if (err) {
-                throw err;
-            }
-            if (!rows || rows.length === 0) {
-                resp.status(404).send({ error: "No paintings found" });
-                return;
-            } else {
-                resp.json(rows);
-            }
-        },
-    );
+    let sort = req.params.sType;
+    let limit = Number(req.params.ref);
 
+    // Validate sort type
+    if (sort !== 'title' && sort !== 'year') {
+        resp.status(400).send({
+            error: "Invalid sort type. Must be 'title' or 'year'."
+        });
+        return;
+    }
 
+    // Validate limit
+    if (!/^\d+$/.test(req.params.ref) ||
+        !Number.isSafeInteger(limit)) {
+        resp.status(400).send({
+            error: "Limit must be a non-negative integer."
+        });
+        return;
+    }
+
+    // If limit is 0, return all paintings
+    if (limit === 0) {
+        limit = -1;
+    }
+
+    db.all(sql, [sort, sort, limit], (err, rows) => {
+        if (err) {
+            resp.status(500).send({
+                error: err.message
+            });
+            return;
+        }
+
+        if (!rows || rows.length === 0) {
+            resp.status(404).send({
+                error: "No paintings found."
+            });
+            return;
+        }
+
+        resp.json(rows);
+    });
 });
 
 app.get(
@@ -359,7 +394,7 @@ app.get(
                 .send({ error: "Invalid sort type. Must be 'title' or 'year'." });
             return;
         }
-        if (req.params.ref < 0 || req.params.offset < 0) {
+        if (Number(req.params.ref) < 0 || Number(req.params.offset) < 0) {
             resp
                 .status(400)
                 .send({ error: "Limit and offset must be positive numbers." });
