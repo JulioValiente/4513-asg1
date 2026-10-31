@@ -204,6 +204,41 @@ app.get("/api/genres", async (req, resp) => {
 
 });
 
+app.get("/api/genres/:ref", (req, resp) => {
+    let sql = `
+        SELECT Genres.*, Eras.*
+        FROM Genres
+        LEFT JOIN Eras
+            ON Genres.EraID = Eras.EraID
+        WHERE Genres.GenreID = ?;
+    `;
+
+    let genreId = Number(req.params.ref);
+
+    if (!Number.isSafeInteger(genreId) || genreId <= 0) {
+        resp.status(400).send({
+            error: "Invalid genre ID"
+        });
+        return;
+    }
+
+    db.get(sql, [genreId], (err, row) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!row) {
+            resp.status(404).send({
+                error: "Genre not found"
+            });
+            return;
+        }
+
+        resp.json(row);
+    });
+});
+
 app.get("/api/paintings/sort/:sType/limit/:ref", async (req, resp) => {
     let sql =
         "SELECT Paintings.*, Artists.*, Galleries.* FROM Paintings LEFT JOIN Artists ON Paintings.ArtistID = Artists.ArtistID LEFT JOIN Galleries ON Paintings.GalleryID = Galleries.GalleryID ORDER BY CASE WHEN ? = 'title' THEN Paintings.Title END ASC, CASE WHEN ? = 'year' THEN Paintings.YearOfWork END ASC LIMIT ?";
