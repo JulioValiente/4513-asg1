@@ -70,6 +70,23 @@ app.get("/api/galleries/:id", async (req, resp) => {
 
 
 });
+app.get("/api/artists", async (req, resp) => {
+    let sql = "SELECT * FROM Artists;";
+
+    await db.all(sql, [], (err, rows) => {
+        if (err) {
+            throw err;
+        }
+        if (!rows || rows.length === 0) {
+            resp.status(404).send({ error: "No artists found" });
+            return;
+        } else {
+            resp.json(rows);
+        }
+    });
+
+
+});
 
 app.get("/api/galleries/country/:subs", async (req, resp) => {
     let sql = "SELECT * FROM Galleries WHERE GalleryCountry LIKE ?";
