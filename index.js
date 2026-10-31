@@ -238,6 +238,43 @@ app.get("/api/genres/:ref", (req, resp) => {
         resp.json(row);
     });
 });
+
+app.get("/api/paintings/single/:ref", (req, resp) => {
+    let sql = `
+        SELECT Paintings.*, Artists.*, Galleries.*
+        FROM Paintings
+        LEFT JOIN Artists
+            ON Paintings.ArtistID = Artists.ArtistID
+        LEFT JOIN Galleries
+            ON Paintings.GalleryID = Galleries.GalleryID
+        WHERE Paintings.PaintingID = ?;
+    `;
+
+    let paintingId = Number(req.params.ref);
+
+    if (!Number.isSafeInteger(paintingId) || paintingId <= 0) {
+        resp.status(400).send({
+            error: "Invalid painting ID"
+        });
+        return;
+    }
+
+    db.get(sql, [paintingId], (err, row) => {
+        if (err) {
+            resp.status(500).send({ error: err.message });
+            return;
+        }
+
+        if (!row) {
+            resp.status(404).send({
+                error: "Painting not found"
+            });
+            return;
+        }
+
+        resp.json(row);
+    });
+});
 app.get("/api/genres/painting/:ref", (req, resp) => {
     let sql = `
         SELECT Genres.*, Eras.*
